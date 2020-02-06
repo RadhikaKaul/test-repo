@@ -1,0 +1,32 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+# PRACTICE RMD
+
+### Author: Radhika Kaul
+
+### Date: 2/5/2020
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(message =  FALSE)
+knitr::opts_chunk$set(warning =  FALSE)
+```
+ 
+
+
+```{r load-packages}
+library(tidyverse)
+```
+
+
+```{r make-plot}
+storms %>%
+  group_by(year) %>%
+  summarize(wind = mean(wind)) %>%
+  ggplot(mapping = aes(x = year, y = wind))+
+  geom_line()+
+  geom_point()
+
+```
